@@ -29,3 +29,15 @@
 3. **Aly Tall Niang**
    - Téléphone : 773456789
    - Mot de passe : password123
+
+### Commandes Utiles
+
+```bash
+# Migrer la base de données
+composer database:migrate
+
+# Générer des données de test
+composer database:seed
+
+# Vérifier la configuration
+php -S localhost:8000 -t public/
