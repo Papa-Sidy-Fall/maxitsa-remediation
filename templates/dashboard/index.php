@@ -8,11 +8,11 @@
 </div>
 
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-    <div class="bg-blue-600 rounded-lg shadow-md">
+    <div class="bg-orange-600 rounded-lg shadow-md">
         <div class="p-6">
             <div class="flex justify-between items-center">
                 <div>
-                    <h6 class="text-blue-100 text-sm font-medium">Solde du compte principal</h6>
+                    <h6 class="text-orange-100 text-sm font-medium">Solde du compte principal</h6>
                     <h3 class="text-white text-2xl font-bold">
                         <?= $account ? $account->getSoldeFormatted() : '0 FCFA' ?>
                     </h3>
@@ -38,11 +38,11 @@
         </div>
     </div>
     
-    <div class="bg-blue-500 rounded-lg shadow-md">
+    <div class="bg-orange-500 rounded-lg shadow-md">
         <div class="p-6">
             <div class="flex justify-between items-center">
                 <div>
-                    <h6 class="text-blue-100 text-sm font-medium">Numéro principal</h6>
+                    <h6 class="text-orange-100 text-sm font-medium">Numéro principal</h6>
                     <h5 class="text-white text-xl font-bold">
                         <?= $account ? htmlspecialchars($account->getTelephone()) : 'N/A' ?>
                     </h5>
@@ -60,7 +60,7 @@
         <div class="bg-white rounded-lg shadow-md">
             <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
                 <h5 class="text-lg font-semibold text-gray-900">Dernières transactions</h5>
-                <a href="/dashboard/transactions" class="inline-flex items-center px-3 py-1.5 border border-blue-600 text-blue-600 text-sm font-medium rounded-md hover:bg-blue-50 transition-colors">
+                <a href="/dashboard/transactions" class="inline-flex items-center px-3 py-1.5 border border-orange-600 text-orange-600 text-sm font-medium rounded-md hover:bg-orange-50 transition-colors">
                     Voir tout
                 </a>
             </div>
@@ -69,7 +69,7 @@
                     <div class="text-center py-8">
                         <i class="fas fa-inbox text-5xl text-gray-400 mb-4"></i>
                         <p class="text-gray-600 mb-4">Aucune transaction récente</p>
-                        <a href="/transaction/deposit" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 transition-colors">
+                        <a href="/transaction/deposit" class="inline-flex items-center px-4 py-2 bg-orange-600 text-white text-sm font-medium rounded-md hover:bg-orange-700 transition-colors">
                             Faire une transaction
                         </a>
                     </div>
@@ -90,7 +90,7 @@
                                     <tr class="hover:bg-gray-50">
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="flex items-center">
-                                                <i class="fas <?= $transaction->isTransfer() ? 'fa-exchange-alt' : 'fa-credit-card' ?> mr-3 text-blue-600"></i>
+                                                <i class="fas <?= $transaction->isTransfer() ? 'fa-exchange-alt' : 'fa-credit-card' ?> mr-3 text-orange-600"></i>
                                                 <div>
                                                     <div class="font-medium text-gray-900"><?= htmlspecialchars($transaction->getType()) ?></div>
                                                     <?php if ($transaction->getSousType()): ?>
@@ -142,7 +142,7 @@
             </div>
             <div class="p-6">
                 <div class="space-y-3">
-                    <a href="/transaction/deposit" class="w-full inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 transition-colors">
+                    <a href="/transaction/deposit" class="w-full inline-flex items-center justify-center px-4 py-2 bg-orange-600 text-white text-sm font-medium rounded-md hover:bg-orange-700 transition-colors">
                         <i class="fas fa-arrow-up mr-2"></i>
                         Faire un dépôt
                     </a>
@@ -150,11 +150,11 @@
                         <i class="fas fa-credit-card mr-2"></i>
                         Effectuer un paiement
                     </a>
-                    <a href="/account/create" class="w-full inline-flex items-center justify-center px-4 py-2 bg-blue-500 text-white text-sm font-medium rounded-md hover:bg-blue-600 transition-colors">
+                    <a href="/account/create" class="w-full inline-flex items-center justify-center px-4 py-2 bg-orange-500 text-white text-sm font-medium rounded-md hover:bg-orange-600 transition-colors">
                         <i class="fas fa-plus mr-2"></i>
                         Créer un compte secondaire
                     </a>
-                    <a href="/dashboard/accounts" class="w-full inline-flex items-center justify-center px-4 py-2 border border-blue-600 text-blue-600 text-sm font-medium rounded-md hover:bg-blue-50 transition-colors">
+                    <a href="/dashboard/accounts" class="w-full inline-flex items-center justify-center px-4 py-2 border border-orange-600 text-orange-600 text-sm font-medium rounded-md hover:bg-orange-50 transition-colors">
                         <i class="fas fa-wallet mr-2"></i>
                         Gérer mes comptes
                     </a>
@@ -166,6 +166,6 @@
 
 <?php 
 $content = ob_get_clean();
-$title = 'Tableau de bord - MAXITSA';
+$title = 'Tableau de bord - Max It SA';
 include __DIR__ . '/../layout.php';
 ?>

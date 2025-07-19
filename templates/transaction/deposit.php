@@ -3,7 +3,7 @@
 <div class="flex justify-center min-h-screen bg-gray-50 py-8">
     <div class="w-full max-w-md lg:max-w-lg">
         <div class="bg-white shadow-xl rounded-lg border border-gray-200 overflow-hidden">
-            <div class="bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-4">
+            <div class="bg-gradient-to-r from-orange-500 to-orange-600 px-6 py-4">
                 <h4 class="text-xl font-semibold text-white flex items-center">
                     <i class="fas fa-arrow-up mr-2"></i>
                     Effectuer un dépôt
@@ -29,7 +29,7 @@
                     
                     <div>
                         <label for="from_account" class="block text-sm font-medium text-gray-700 mb-2">Compte source *</label>
-                        <select class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 <?= errors('from_account') ? 'border-red-500' : '' ?>" 
+                        <select class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 <?= errors('from_account') ? 'border-red-500' : '' ?>" 
                                 id="from_account" 
                                 name="from_account">
                             <option value="">Sélectionnez un compte</option>
@@ -55,7 +55,7 @@
                                 <i class="fas fa-mobile-alt text-gray-400"></i>
                             </div>
                             <input type="tel" 
-                                   class="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 <?= errors('to_telephone') ? 'border-red-500' : '' ?>" 
+                                   class="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 <?= errors('to_telephone') ? 'border-red-500' : '' ?>" 
                                    id="to_telephone" 
                                    name="to_telephone" 
                                    value="<?= old('to_telephone') ?>"
@@ -78,7 +78,7 @@
                                 <i class="fas fa-coins text-gray-400"></i>
                             </div>
                             <input type="number" 
-                                   class="w-full pl-10 pr-16 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 <?= errors('montant') ? 'border-red-500' : '' ?>" 
+                                   class="w-full pl-10 pr-16 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 <?= errors('montant') ? 'border-red-500' : '' ?>" 
                                    id="montant" 
                                    name="montant" 
                                    value="<?= old('montant') ?>"
@@ -101,7 +101,7 @@
 
                     <div>
                         <label for="description" class="block text-sm font-medium text-gray-700 mb-2">Description (optionnelle)</label>
-                        <textarea class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none <?= errors('description') ? 'border-red-500' : '' ?>" 
+                        <textarea class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 resize-none <?= errors('description') ? 'border-red-500' : '' ?>" 
                                   id="description" 
                                   name="description" 
                                   rows="3" 
@@ -118,11 +118,11 @@
                     </div>
 
                     <div class="flex space-x-3 pt-4">
-                        <button type="submit" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                        <button type="submit" class="flex-1 bg-orange-500 hover:bg-orange-600 text-white font-medium py-2 px-4 rounded-md transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2">
                             <i class="fas fa-paper-plane mr-2"></i>
                             Effectuer le dépôt
                         </button>
-                        <a href="/dashboard" class="inline-flex items-center px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-200 ease-in-out">
+                        <a href="/dashboard" class="inline-flex items-center px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 transition duration-200 ease-in-out">
                             <i class="fas fa-arrow-left mr-2"></i>
                             Retour
                         </a>
@@ -152,6 +152,6 @@ document.getElementById('montant').addEventListener('input', function() {
 
 <?php 
 $content = ob_get_clean();
-$title = 'Effectuer un dépôt - MAXITSA';
+$title = 'Effectuer un dépôt - Max It SA';
 include __DIR__ . '/../layout.php';
 ?>

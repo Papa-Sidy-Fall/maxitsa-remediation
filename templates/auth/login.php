@@ -4,10 +4,12 @@
     <div class="max-w-md w-full space-y-8">
         <div class="bg-white rounded-xl shadow-lg p-8">
             <div class="text-center mb-8">
-                <h2 class="text-3xl font-bold text-gray-900 mb-2">
-                    <i class="fas fa-money-bill-wave text-indigo-600 mr-2"></i>
-                    MAXITSA
-                </h2>
+                <div class="mb-4">
+                    <div class="bg-orange-500 text-white px-6 py-4 rounded-3xl shadow-lg inline-block">
+                        <div class="text-2xl font-bold">Max It</div>
+                        <div class="text-xl font-bold">SA</div>
+                    </div>
+                </div>
                 <p class="text-gray-600">Connectez-vous à votre compte</p>
             </div>
 
@@ -23,7 +25,7 @@
                             <i class="fas fa-phone text-gray-400"></i>
                         </div>
                         <input type="tel" 
-                               class="block w-full pl-10 pr-3 py-2 border <?= errors('telephone') ? 'border-red-300 text-red-900 placeholder-red-300' : 'border-gray-300' ?> rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" 
+                               class="block w-full pl-10 pr-3 py-2 border <?= errors('telephone') ? 'border-red-300 text-red-900 placeholder-red-300' : 'border-gray-300' ?> rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500" 
                                id="telephone" 
                                name="telephone" 
                                value="<?= old('telephone') ?>"
@@ -43,7 +45,7 @@
                             <i class="fas fa-lock text-gray-400"></i>
                         </div>
                         <input type="password" 
-                               class="block w-full pl-10 pr-3 py-2 border <?= errors('password') ? 'border-red-300 text-red-900 placeholder-red-300' : 'border-gray-300' ?> rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" 
+                               class="block w-full pl-10 pr-3 py-2 border <?= errors('password') ? 'border-red-300 text-red-900 placeholder-red-300' : 'border-gray-300' ?> rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500" 
                                id="password" 
                                name="password">
                     </div>
@@ -52,7 +54,7 @@
                     <?php endif; ?>
                 </div>
 
-                <button type="submit" class="w-full flex justify-center items-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors">
+                <button type="submit" class="w-full flex justify-center items-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 transition-colors">
                     <i class="fas fa-sign-in-alt mr-2"></i>
                     Se connecter
                 </button>
@@ -61,7 +63,7 @@
             <div class="text-center mt-6">
                 <p class="text-gray-600">
                     Pas encore de compte ? 
-                    <a href="/register" class="font-medium text-indigo-600 hover:text-indigo-500 transition-colors">
+                    <a href="/register" class="font-medium text-orange-500 hover:text-orange-600 transition-colors">
                         Créer un compte
                     </a>
                 </p>
@@ -72,6 +74,6 @@
 
 <?php 
 $content = ob_get_clean();
-$title = 'Connexion - MAXITSA';
+$title = 'Connexion - Max It SA';
 include __DIR__ . '/../layout.php';
 ?>

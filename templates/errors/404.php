@@ -23,7 +23,7 @@
         <!-- Action Buttons -->
         <div class="space-y-3">
             <a href="/dashboard" 
-               class="w-full inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200 shadow-lg hover:shadow-xl">
+               class="w-full inline-flex items-center justify-center px-6 py-3 bg-orange-600 text-white font-medium rounded-lg hover:bg-orange-700 transition-colors duration-200 shadow-lg hover:shadow-xl">
                 <i class="fas fa-home mr-2"></i>
                 Retour à l'accueil
             </a>
@@ -38,6 +38,6 @@
 
 <?php 
 $content = ob_get_clean();
-$title = 'Page non trouvée - MAXITSA';
+$title = 'Page non trouvée - Max It SA';
 include __DIR__ . '/../layout.php';
 ?>

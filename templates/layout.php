@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title ?? 'MAXITSA' ?></title>
+    <title><?= $title ?? 'Max It SA' ?></title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script>
@@ -29,10 +29,13 @@
     <?php if (Session::isLoggedIn()): ?>
         <div class="flex min-h-screen bg-gray-50">
             <!-- Sidebar -->
-            <div class="w-64 bg-gradient-to-br from-indigo-600 to-purple-700 shadow-lg">
+            <div class="w-64 bg-gradient-to-br from-orange-500 to-orange-600 shadow-lg">
                 <div class="flex flex-col h-full p-4">
-                    <a href="/dashboard" class="text-white text-xl font-bold mb-8 flex items-center">
-                        <i class="fas fa-money-bill-wave mr-2"></i>MAXITSA
+                    <a href="/dashboard" class="mb-8 block">
+                        <div class="bg-white text-orange-500 px-4 py-3 rounded-2xl shadow-lg">
+                            <div class="text-lg font-bold">Max It</div>
+                            <div class="text-sm font-bold">SA</div>
+                        </div>
                     </a>
                     
                     <nav class="flex-1 space-y-2">

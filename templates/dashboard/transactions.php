@@ -2,7 +2,7 @@
 
 <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-6">
     <h1 class="text-2xl font-bold text-gray-900">Toutes les transactions</h1>
-    <a href="/transaction/deposit" class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200">
+    <a href="/transaction/deposit" class="inline-flex items-center px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-lg transition-colors duration-200">
         <i class="fas fa-plus mr-2"></i>Nouvelle transaction
     </a>
 </div>
@@ -13,7 +13,7 @@
         <form method="GET" action="/dashboard/transactions" class="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div>
                 <label for="type" class="block text-sm font-medium text-gray-700 mb-2">Type</label>
-                <select class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200" id="type" name="type">
+                <select class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors duration-200" id="type" name="type">
                     <option value="">Tous les types</option>
                     <option value="Transfert" <?= $filters['type'] === 'Transfert' ? 'selected' : '' ?>>Transfert</option>
                     <option value="Paiement" <?= $filters['type'] === 'Paiement' ? 'selected' : '' ?>>Paiement</option>
@@ -21,16 +21,16 @@
             </div>
             <div>
                 <label for="date_from" class="block text-sm font-medium text-gray-700 mb-2">Du</label>
-                <input type="date" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200" id="date_from" name="date_from" value="<?= $filters['date_from'] ?>">
+                <input type="date" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors duration-200" id="date_from" name="date_from" value="<?= $filters['date_from'] ?>">
             </div>
             <div>
                 <label for="date_to" class="block text-sm font-medium text-gray-700 mb-2">Au</label>
-                <input type="date" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200" id="date_to" name="date_to" value="<?= $filters['date_to'] ?>">
+                <input type="date" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors duration-200" id="date_to" name="date_to" value="<?= $filters['date_to'] ?>">
             </div>
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2">&nbsp;</label>
                 <div class="flex gap-2">
-                    <button type="submit" class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200">
+                    <button type="submit" class="inline-flex items-center px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-lg transition-colors duration-200">
                         <i class="fas fa-search mr-1"></i>Filtrer
                     </button>
                     <a href="/dashboard/transactions" class="inline-flex items-center px-4 py-2 border border-gray-300 text-gray-700 hover:bg-gray-50 font-medium rounded-lg transition-colors duration-200">Réinitialiser</a>
@@ -77,7 +77,7 @@
                                 </td>
                                 <td class="py-4 px-4">
                                     <div class="flex items-center">
-                                        <i class="fas <?= $transaction->isTransfer() ? 'fa-exchange-alt' : 'fa-credit-card' ?> mr-3 text-blue-600"></i>
+                                        <i class="fas <?= $transaction->isTransfer() ? 'fa-exchange-alt' : 'fa-credit-card' ?> mr-3 text-orange-500"></i>
                                         <div>
                                             <div class="text-sm font-medium text-gray-900"><?= htmlspecialchars($transaction->getType()) ?></div>
                                             <?php if ($transaction->getSousType()): ?>
@@ -154,7 +154,7 @@
                         <!-- Pages numérotées -->
                         <?php for ($i = max(1, $currentPage - 2); $i <= min($totalPages, $currentPage + 2); $i++): ?>
                             <?php $queryParams['page'] = $i; ?>
-                            <a class="inline-flex items-center px-4 py-2 text-sm font-medium <?= $i === $currentPage ? 'text-white bg-blue-600 border-blue-600' : 'text-gray-500 bg-white border-gray-300 hover:bg-gray-50 hover:text-gray-700' ?> border rounded-md transition-colors duration-200" href="?<?= http_build_query($queryParams) ?>"><?= $i ?></a>
+                            <a class="inline-flex items-center px-4 py-2 text-sm font-medium <?= $i === $currentPage ? 'text-white bg-orange-500 border-orange-500' : 'text-gray-500 bg-white border-gray-300 hover:bg-gray-50 hover:text-gray-700' ?> border rounded-md transition-colors duration-200" href="?<?= http_build_query($queryParams) ?>"><?= $i ?></a>
                         <?php endfor; ?>
                         
                         <!-- Page suivante -->
@@ -181,6 +181,6 @@
 
 <?php 
 $content = ob_get_clean();
-$title = 'Transactions - MAXITSA';
+$title = 'Transactions - Max It SA';
 include __DIR__ . '/../layout.php';
 ?>

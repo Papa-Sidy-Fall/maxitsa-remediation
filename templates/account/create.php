@@ -5,17 +5,17 @@
         <div class="bg-white rounded-lg shadow-md border border-gray-200">
             <div class="px-6 py-4 border-b border-gray-200 bg-gray-50 rounded-t-lg">
                 <h4 class="text-lg font-semibold text-gray-900 flex items-center">
-                    <i class="fas fa-plus-circle mr-2 text-blue-600"></i>
+                    <i class="fas fa-plus-circle mr-2 text-orange-500"></i>
                     Créer un compte secondaire
                 </h4>
             </div>
             <div class="p-6">
-                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                <div class="bg-orange-50 border border-orange-200 rounded-lg p-4 mb-6">
                     <div class="flex items-start">
-                        <i class="fas fa-info-circle mr-2 text-blue-600 mt-1"></i>
+                        <i class="fas fa-info-circle mr-2 text-orange-500 mt-1"></i>
                         <div>
-                            <span class="font-semibold text-blue-800">Information :</span>
-                            <span class="text-blue-700"> Pour créer un compte secondaire, seul le numéro de téléphone est requis. 
+                            <span class="font-semibold text-orange-800">Information :</span>
+                            <span class="text-orange-600"> Pour créer un compte secondaire, seul le numéro de téléphone est requis. 
                             Si vous ajoutez un solde initial, il sera transféré depuis votre compte principal.</span>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                                 <i class="fas fa-phone text-gray-400"></i>
                             </div>
                             <input type="tel" 
-                                   class="w-full pl-10 pr-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors <?= errors('telephone') ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : 'border-gray-300' ?>" 
+                                   class="w-full pl-10 pr-3 py-2 border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors <?= errors('telephone') ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : 'border-gray-300' ?>" 
                                    id="telephone" 
                                    name="telephone" 
                                    value="<?= old('telephone') ?>"
@@ -59,7 +59,7 @@
                                 <i class="fas fa-coins text-gray-400"></i>
                             </div>
                             <input type="number" 
-                                   class="w-full pl-10 pr-16 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors <?= errors('solde') ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : 'border-gray-300' ?>" 
+                                   class="w-full pl-10 pr-16 py-2 border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors <?= errors('solde') ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : 'border-gray-300' ?>" 
                                    id="solde" 
                                    name="solde" 
                                    value="<?= old('solde') ?>"
@@ -86,7 +86,7 @@
                     </div>
 
                     <div class="flex flex-col sm:flex-row gap-3">
-                        <button type="submit" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center">
+                        <button type="submit" class="flex-1 bg-orange-500 hover:bg-orange-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center">
                             <i class="fas fa-save mr-2"></i>
                             Créer le compte
                         </button>
@@ -103,6 +103,6 @@
 
 <?php 
 $content = ob_get_clean();
-$title = 'Créer un compte - MAXITSA';
+$title = 'Créer un compte - Max It SA';
 include __DIR__ . '/../layout.php';
 ?>
