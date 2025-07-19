@@ -82,7 +82,9 @@ abstract class AbstractRepository
         $entity = new $this->entityClass();
         
         foreach ($data as $key => $value) {
-            $setter = 'set' . ucfirst($key);
+            // Convertir snake_case en camelCase
+            $camelKey = str_replace(' ', '', ucwords(str_replace('_', ' ', $key)));
+            $setter = 'set' . $camelKey;
             
             if (method_exists($entity, $setter)) {
                 if (in_array($key, ['createdAt', 'updatedAt', 'created_at', 'updated_at']) && $value) {

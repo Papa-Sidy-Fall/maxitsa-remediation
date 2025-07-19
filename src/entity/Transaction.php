@@ -47,7 +47,7 @@ class Transaction extends \AbstractEntity
 
     public function getSousType(): ?string
     {
-        return $this->sous_type;
+        return isset($this->sous_type) ? $this->sous_type : null;
     }
 
     public function getMontant(): float

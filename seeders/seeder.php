@@ -110,16 +110,17 @@ class Seeder
         echo "Comptes créés.\n";
     }
 
-    private function seedTransactions(): void
+    public function seedTransactions(): void
     {
         // Vérifier si des transactions existent déjà
         $stmt = $this->db->query("SELECT COUNT(*) FROM transactions");
         $count = $stmt->fetchColumn();
         
-        if ($count > 0) {
-            echo "Des transactions existent déjà, skip du seeding des transactions.\n";
-            return;
-        }
+        // Commenté pour permettre la recréation
+        // if ($count > 0) {
+        //     echo "Des transactions existent déjà, skip du seeding des transactions.\n";
+        //     return;
+        // }
         
         $transactions = [
             [
@@ -161,6 +162,97 @@ class Seeder
                 'frais' => 0.00,
                 'status' => 'terminée',
                 'description' => 'Transfert vers compte secondaire'
+            ],
+            // 9 nouvelles transactions pour Birane Baila Wane
+            [
+                'account_id' => 1,
+                'account_destination_id' => null,
+                'type' => 'Paiement',
+                'sous_type' => null,
+                'montant' => 8500.00,
+                'frais' => 0.00,
+                'status' => 'terminée',
+                'description' => 'Paiement facture téléphone'
+            ],
+            [
+                'account_id' => 1,
+                'account_destination_id' => 3,
+                'type' => 'Transfert',
+                'sous_type' => 'Dépôt',
+                'montant' => 75000.00,
+                'frais' => 6000.00,
+                'status' => 'terminée',
+                'description' => 'Transfert vers Omar pour urgence'
+            ],
+            [
+                'account_id' => 2,
+                'account_destination_id' => null,
+                'type' => 'Paiement',
+                'sous_type' => null,
+                'montant' => 12000.00,
+                'frais' => 0.00,
+                'status' => 'terminée',
+                'description' => 'Paiement abonnement internet'
+            ],
+            [
+                'account_id' => 1,
+                'account_destination_id' => null,
+                'type' => 'Paiement',
+                'sous_type' => null,
+                'montant' => 25000.00,
+                'frais' => 0.00,
+                'status' => 'terminée',
+                'description' => 'Paiement location appartement'
+            ],
+            [
+                'account_id' => 1,
+                'account_destination_id' => 4,
+                'type' => 'Transfert',
+                'sous_type' => 'Dépôt',
+                'montant' => 50000.00,
+                'frais' => 4000.00,
+                'status' => 'en_attente',
+                'description' => 'Transfert vers Aminata Fall'
+            ],
+            [
+                'account_id' => 2,
+                'account_destination_id' => null,
+                'type' => 'Paiement',
+                'sous_type' => null,
+                'montant' => 3500.00,
+                'frais' => 0.00,
+                'status' => 'terminée',
+                'description' => 'Paiement transport mensuel'
+            ],
+            [
+                'account_id' => 1,
+                'account_destination_id' => null,
+                'type' => 'Paiement',
+                'sous_type' => null,
+                'montant' => 15000.00,
+                'frais' => 0.00,
+                'status' => 'terminée',
+                'description' => 'Paiement facture eau'
+            ],
+            [
+                'account_id' => 1,
+                'account_destination_id' => 2,
+                'type' => 'Transfert',
+                'sous_type' => 'Dépôt',
+                'montant' => 80000.00,
+                'frais' => 0.00,
+                'status' => 'terminée',
+                'description' => 'Alimentation compte secondaire'
+            ],
+            [
+                'account_id' => 2,
+                'account_destination_id' => 3,
+                'type' => 'Transfert',
+                'sous_type' => 'Dépôt',
+                'montant' => 35000.00,
+                'frais' => 2800.00,
+                'status' => 'terminée',
+                'description' => 'Transfert aide famille Omar'
             ]
         ];
 
