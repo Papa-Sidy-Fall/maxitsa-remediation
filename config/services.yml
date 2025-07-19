@@ -1,0 +1,53 @@
+services:
+  core:
+    router:
+      class: Router
+      singleton: false
+    database:
+      class: Database
+      singleton: true
+    session:
+      class: Session
+      singleton: true
+    validator:
+      class: Validator
+      singleton: false
+    fileUpload:
+      class: FileUpload
+      singleton: false
+
+  repositories:
+    userRepository:
+      class: UserRepository
+      singleton: false
+      dependencies: [database]
+    accountRepository:
+      class: AccountRepository
+      singleton: false
+      dependencies: [database]
+    transactionRepository:
+      class: TransactionRepository
+      singleton: false
+      dependencies: [database]
+
+  services:
+    userService:
+      class: UserService
+      singleton: false
+      dependencies: [userRepository, accountRepository]
+    accountService:
+      class: AccountService
+      singleton: false
+      dependencies: [accountRepository, transactionRepository]
+    transactionService:
+      class: TransactionService
+      singleton: false
+      dependencies: [transactionRepository, accountRepository]
+
+  middlewares:
+    auth:
+      class: Auth
+      singleton: false
+    cryptPassword:
+      class: CryptPassword
+      singleton: false

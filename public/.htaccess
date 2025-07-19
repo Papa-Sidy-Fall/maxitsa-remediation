@@ -1,0 +1,32 @@
+RewriteEngine On
+
+# Rediriger toutes les requêtes vers index.php sauf pour les fichiers existants
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+# Configuration des headers de sécurité
+Header always set X-Content-Type-Options nosniff
+Header always set X-Frame-Options DENY
+Header always set X-XSS-Protection "1; mode=block"
+
+# Configuration du cache pour les assets statiques
+<FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico|svg)$">
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+</FilesMatch>
+
+# Empêcher l'accès aux fichiers sensibles
+<FilesMatch "\.(env|yml|yaml|json|log)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Configuration PHP
+php_flag display_errors Off
+php_flag log_errors On
+php_value memory_limit 256M
+php_value max_execution_time 30
+php_value max_input_vars 3000
+php_value post_max_size 10M
+php_value upload_max_filesize 5M
