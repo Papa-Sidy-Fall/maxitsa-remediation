@@ -9,7 +9,6 @@
    ```
 
 4. **Créer la base de données**
-   ```sql
    CREATE DATABASE maxitsa;
    ```
 ```
