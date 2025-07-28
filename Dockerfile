@@ -1,17 +1,49 @@
-FROM php:8.2-apache
+FROM php:8.2-fpm
 
-# Copie du code dans le dossier web
-COPY . /var/www/html/
+# Installer dépendances système
+RUN apt-get update && \
+    apt-get install -y \
+        nginx \
+        supervisor \
+        git \
+        unzip \
+        curl \
+        libpq-dev \
+        libyaml-dev \
+        && docker-php-ext-install pdo pdo_pgsql pgsql \
+        && pecl install yaml \
+        && docker-php-ext-enable yaml \
+        && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Définir le dossier public comme racine du serveur
-RUN rm -rf /var/www/html/* && cp -r /var/www/html/public/* /var/www/html/
+# Installer Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-WORKDIR /var/www/html/
+# Dossier de travail
+WORKDIR /var/www/html
 
-# Activation des extensions PHP nécessaires (exemple : pdo_pgsql pour PostgreSQL)
-RUN docker-php-ext-install pdo pdo_pgsql
+# Copier les fichiers
+COPY . /var/www/html
 
+# Installer les dépendances PHP
+WORKDIR /var/www/html
+RUN composer install --no-dev --optimize-autoloader
+
+# Créer les répertoires nécessaires
+RUN mkdir -p logs && \
+    chmod 777 logs
+
+# Fixer les permissions
+RUN chown -R www-data:www-data /var/www/html && \
+    chmod -R 755 /var/www/html
+
+# Supprimer le fichier default nginx conf
+RUN rm /etc/nginx/sites-enabled/default
+
+# Copier ta configuration nginx et supervisord
+COPY default.conf /etc/nginx/conf.d/default.conf
+COPY supervisord.conf /etc/supervisord.conf
+
+# Exposer le port
 EXPOSE 80
 
-# Commande de démarrage
-CMD ["apache2-foreground"]
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
